@@ -1,0 +1,3 @@
+{"question": "EXAMPLE - replace me: What are the prerequisites for CS 310?", "expected_source": "REPLACE-with-your-file.pdf", "expected_keywords": ["CS 211"]}
+{"question": "EXAMPLE - replace me: How many credits are required for the BS in Computer Science?", "expected_source": "REPLACE-with-your-file.pdf", "expected_keywords": ["120"]}
+{"question": "What is the cafeteria menu on Tuesday?", "unanswerable": true}
