@@ -1,0 +1,41 @@
+question,retrieval_hit,answer_hit,refusal_ok,latency_s,answer
+What are the prerequisites for CS 310?,True,False,,3.05,"According to [1], the prerequisites for CS 310 are:
+
+* (CS 310C or 310XS)
+* (CS 330C or 330XS)"
+What are the prerequisites for CS 330?,True,True,,2.34,"According to [3] (Computer_Science_Course_Description.pdf, p.6), the prerequisites for CS 330: Formal Methods and Models are:
+
+(1) CS 211C or 211XS
+(2) MATH 125C or 125XS"
+What courses do I need before taking CS 483 Analysis of Algorithms?,True,True,,2.43,"According to [1], the prerequisites for CS 483 Analysis of Algorithms are:
+
+* CS 310C or 310XS
+* CS 330C or 330XS
+* MATH 125C or 125XS
+
+So, you need to take these three courses before taking CS 483 Analysis of Algorithms."
+What is CS 367 and how many credits is it?,True,False,,1.56,I couldn't find that in the documents I have.
+What is the name of MATH 125?,True,False,,1.51,I couldn't find that in the documents I have.
+What is the prerequisite for MATH 203 Linear Algebra?,True,False,,2.01,"According to [1], the prerequisite for MATH 203 Linear Algebra is ((MATH 213C, 213XS, 215C or 215XS) and (MATH 300C or 300XS))."
+How many total credits are required for the Computer Science BS?,False,False,,1.46,I couldn't find that in the documents I have.
+"In the CS BS, what can replace STAT 344 if I take MATH 352?",True,True,,2.29,"According to [1], those who take MATH 352 Statistics may replace STAT 344 Probability and Statistics for Engineers and Scientists I with MATH 351 Probability."
+How many times can I attempt an undergraduate course taught by the College of Engineering and Computing?,True,True,,2.08,"According to [4] (Computer_Science_BS_Academic_Policies.pdf, p.2), students may attempt an undergraduate course taught by the College of Engineering and Computing twice. A third attempt requires approval of the department offering the course."
+Which courses fulfill the writing-intensive requirement for Computer Science majors?,True,True,,2.79,"According to [2] (Computer_Science_BS_Academic_Policies.pdf, p.3), Computer Science majors fulfill the writing-intensive requirement through a sequence of projects and reports in:
+
+1. CS 405 Ethics and Law in Computing (Mason Core)
+2. CS 321 Software Engineering (Mason Core)
+
+These courses are designated as fulfilling the ""writing-intensive"" (WI) requirement for Computer Science majors."
+How many credits do I need to be classified as a junior?,True,False,,1.52,I couldn't find that in the documents I have.
+What GPA do I need to make the Dean's List?,True,True,,1.9,"According to [1], p.11, to be eligible for the Dean's List, students must earn a semester GPA of 3.50 or higher with no grade below C."
+When is a student placed on academic probation?,True,True,,3.78,"According to [1] (GMU_Academic_Policies.pdf, p.4) and [2] (GMU_Academic_Policies.pdf, p.3), a student is placed on Academic Probation if all of the following conditions are met:
+
+1. The student has previously received an Academic Warning in any previous term.
+2. The student receives a term GPA below 2.00.
+3. The student has a cumulative GPA below 2.00.
+
+Additionally, [2] (GMU_Academic_Policies.pdf, p.3) states that students who incur Academic Probation can register for a limited number of credits (see AP.5.2.7 Academic Performance and Credit Level)."
+How many credits per semester makes an undergraduate full-time?,True,True,,1.6,"According to [1] (GMU_Academic_Policies.pdf, p.2), full-time undergraduates are classified as those students enrolled in 12 or more credits per semester."
+What is the deadline to withdraw from a class this semester?,,,True,1.41,I couldn't find that in the documents I have.
+Who is teaching CS 310 in Spring 2027?,,,True,1.45,I couldn't find that in the documents I have.
+How much is tuition per credit hour?,,,True,1.21,I couldn't find that in the documents I have.

@@ -1,3 +1,17 @@
-{"question": "EXAMPLE - replace me: What are the prerequisites for CS 310?", "expected_source": "REPLACE-with-your-file.pdf", "expected_keywords": ["CS 211"]}
-{"question": "EXAMPLE - replace me: How many credits are required for the BS in Computer Science?", "expected_source": "REPLACE-with-your-file.pdf", "expected_keywords": ["120"]}
-{"question": "What is the cafeteria menu on Tuesday?", "unanswerable": true}
+{"question": "What are the prerequisites for CS 310?", "expected_source": "Computer_Science_Course_Description.pdf", "expected_keywords": ["CS 211", "MATH 125"]}
+{"question": "What are the prerequisites for CS 330?", "expected_source": "Computer_Science_Course_Description.pdf", "expected_keywords": ["CS 211", "MATH 125"]}
+{"question": "What courses do I need before taking CS 483 Analysis of Algorithms?", "expected_source": "Computer_Science_Course_Description.pdf", "expected_keywords": ["CS 310", "CS 330", "MATH 125"]}
+{"question": "What is CS 367 and how many credits is it?", "expected_source": "Computer_Science_Course_Description.pdf|Computer_Science_Degree_Requirements.pdf", "expected_keywords": ["Computer Systems", "4|four"]}
+{"question": "What is the name of MATH 125?", "expected_source": "Math_Course_Descriptions.pdf|Computer_Science_Degree_Requirements.pdf", "expected_keywords": ["Discrete Mathematics"]}
+{"question": "What is the prerequisite for MATH 203 Linear Algebra?", "expected_source": "Math_Course_Descriptions.pdf", "expected_keywords": ["MATH 114|MATH 116"]}
+{"question": "How many total credits are required for the Computer Science BS?", "expected_source": "Computer_Science_Degree_Requirements.pdf|Computer_Science_BS_Academic_Policies.pdf", "expected_keywords": ["120"]}
+{"question": "In the CS BS, what can replace STAT 344 if I take MATH 352?", "expected_source": "Computer_Science_Degree_Requirements.pdf|Computer_Science_BS_Academic_Policies.pdf", "expected_keywords": ["MATH 351"]}
+{"question": "How many times can I attempt an undergraduate course taught by the College of Engineering and Computing?", "expected_source": "Computer_Science_BS_Academic_Policies.pdf", "expected_keywords": ["twice|two|2"]}
+{"question": "Which courses fulfill the writing-intensive requirement for Computer Science majors?", "expected_source": "Computer_Science_BS_Academic_Policies.pdf|Computer_Science_Degree_Requirements.pdf", "expected_keywords": ["CS 405", "CS 321"]}
+{"question": "How many credits do I need to be classified as a junior?", "expected_source": "GMU_Academic_Policies.pdf", "expected_keywords": ["60"]}
+{"question": "What GPA do I need to make the Dean's List?", "expected_source": "GMU_Academic_Policies.pdf", "expected_keywords": ["3.5"]}
+{"question": "When is a student placed on academic probation?", "expected_source": "GMU_Academic_Policies.pdf", "expected_keywords": ["2.0", "warning"]}
+{"question": "How many credits per semester makes an undergraduate full-time?", "expected_source": "GMU_Academic_Policies.pdf", "expected_keywords": ["12"]}
+{"question": "What is the deadline to withdraw from a class this semester?", "unanswerable": true}
+{"question": "Who is teaching CS 310 in Spring 2027?", "unanswerable": true}
+{"question": "How much is tuition per credit hour?", "unanswerable": true}

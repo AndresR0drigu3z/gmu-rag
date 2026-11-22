@@ -4,9 +4,11 @@ Each line of eval/questions.jsonl looks like:
   {"question": "...", "expected_source": "file.pdf", "expected_keywords": ["CS 310"]}
   {"question": "...", "unanswerable": true}   # model should say it doesn't know
 
+Use "|" for acceptable alternatives, e.g. "expected_source": "a.pdf|b.pdf" or a keyword "twice|two".
+
 Metrics:
   retrieval_hit  - the expected source file appears in the top-k retrieved chunks
-  answer_hit     - every expected keyword appears in the answer (case-insensitive)
+  answer_hit     - every expected keyword (or one of its alternatives) appears in the answer (case-insensitive)
   refusal_ok     - for unanswerable questions, the model declined instead of guessing
 
 Usage:  python eval/run_eval.py [-k 4]
@@ -47,8 +49,10 @@ def main():
         if q.get("unanswerable"):
             row["refusal_ok"] = any(m in text for m in REFUSAL_MARKERS)
         else:
-            row["retrieval_hit"] = q["expected_source"] in sources
-            row["answer_hit"] = all(kw.lower() in text for kw in q.get("expected_keywords", []))
+            row["retrieval_hit"] = any(src in sources for src in q["expected_source"].split("|"))
+            row["answer_hit"] = all(
+                any(alt.lower() in text for alt in kw.split("|")) for kw in q.get("expected_keywords", [])
+            )
         rows.append(row)
         print(f"{'.' if all(v for k, v in row.items() if k.endswith(('_hit', '_ok'))) else 'x'}", end="", flush=True)
     print()
