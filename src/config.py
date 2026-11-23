@@ -22,6 +22,8 @@ class Settings:
     chunk_size = int(os.getenv("CHUNK_SIZE", "800"))       # characters
     chunk_overlap = int(os.getenv("CHUNK_OVERLAP", "150"))  # characters
     top_k = int(os.getenv("TOP_K", "4"))
+    # Look up chunks by exact course code ("CS 310") before vector search. Needs CHUNK_STRATEGY=structured.
+    course_lookup = os.getenv("COURSE_LOOKUP", "true").lower() == "true"
 
 
 settings = Settings()

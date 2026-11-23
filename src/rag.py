@@ -4,6 +4,7 @@ Usage:
     python src/rag.py "What are the prerequisites for CS 310?"
 """
 import argparse
+import re
 
 import chromadb
 from openai import OpenAI
@@ -37,12 +38,41 @@ def get_llm():
     return _llm
 
 
-def retrieve(question: str, k: int = settings.top_k) -> list[dict]:
+# Course codes in a question: "CS 310", "math 203", "CS310"
+COURSE_CODE = re.compile(r"\b([A-Za-z]{2,4})\s?(\d{3})\b")
+
+
+def exact_course_matches(question: str) -> list[dict]:
+    """If the question names a course code, fetch that course's chunk(s) directly by metadata.
+    Small embedding models are weak at exact identifiers like "CS 310", so we don't rely on them for it."""
+    codes = sorted({f"{subj.upper()} {num}" for subj, num in COURSE_CODE.findall(question)})
+    matches = []
+    for code in codes:
+        res = get_collection().get(where={"course": code})
+        for doc, meta in zip(res["documents"], res["metadatas"]):
+            matches.append({"text": doc, "source": meta["source"], "page": meta["page"],
+                            "distance": 0.0, "match": "exact"})
+    return matches
+
+
+def vector_search(question: str, k: int) -> list[dict]:
     res = get_collection().query(query_texts=[question], n_results=k)
     return [
-        {"text": doc, "source": meta["source"], "page": meta["page"], "distance": dist}
+        {"text": doc, "source": meta["source"], "page": meta["page"], "distance": dist, "match": "vector"}
         for doc, meta, dist in zip(res["documents"][0], res["metadatas"][0], res["distances"][0])
     ]
+
+
+def retrieve(question: str, k: int = settings.top_k) -> list[dict]:
+    """Exact course-code matches first, then fill the remaining slots with vector search."""
+    exact = exact_course_matches(question) if settings.course_lookup else []
+    merged, seen = [], set()
+    for chunk in exact + vector_search(question, k):
+        key = (chunk["source"], chunk["text"])
+        if key not in seen:
+            seen.add(key)
+            merged.append(chunk)
+    return merged[:max(k, len(exact))]
 
 
 def build_prompt(question: str, chunks: list[dict]) -> str:
@@ -75,7 +105,8 @@ def main():
     result = answer(args.question, args.k)
     print(result["answer"], "\n\n--- sources ---")
     for i, s in enumerate(result["sources"], start=1):
-        print(f"[{i}] {s['source']} p.{s['page']}  (distance {s['distance']:.3f})")
+        how = "exact course match" if s["match"] == "exact" else f"distance {s['distance']:.3f}"
+        print(f"[{i}] {s['source']} p.{s['page']}  ({how})")
 
 
 if __name__ == "__main__":

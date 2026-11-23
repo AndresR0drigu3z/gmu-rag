@@ -84,14 +84,15 @@ def chunk_text(text: str, size: int, overlap: int) -> list[str]:
 
 
 def page_chunks(pages, is_paged, size, overlap):
-    """Baseline strategy: chunk each page independently. Yields (chunk_text, page_number)."""
+    """Baseline strategy: chunk each page independently. Yields (chunk_text, page_number, course_code)."""
     for i, page in enumerate(pages):
         for chunk in chunk_text(clean(page), size, overlap):
-            yield chunk, (i + 1 if is_paged else 0)
+            yield chunk, (i + 1 if is_paged else 0), ""
 
 
 def structured_chunks(pages, is_paged, size, overlap):
-    """Improved strategy. Yields (chunk_text, page_number)."""
+    """Improved strategy. Yields (chunk_text, page_number, course_code).
+    course_code is e.g. "CS 310" for course-catalog chunks and "" for everything else."""
     # 1. Clean each page and join them, remembering where each page starts in the combined text.
     page_starts, parts, pos = [], [], 0
     for page in pages:
@@ -114,20 +115,22 @@ def structured_chunks(pages, is_paged, size, overlap):
             section = text[a:b].strip()
             if not section:
                 continue
+            heading = COURSE_HEADING.match(section) if a in headings else None
+            course = heading.group(0).rstrip(":") if heading else ""  # "CS 310:" -> "CS 310"
             if len(section) <= 2 * size:
-                yield section, page_of(a)
+                yield section, page_of(a), course
                 continue
-            title = section.split("\n", 1)[0] if a in headings else ""
+            title = section.split("\n", 1)[0] if heading else ""
             for s, e in chunk_spans(section, size, overlap):
                 piece = section[s:e].strip()
                 if title and not piece.startswith(title):
                     piece = f"{title}\n{piece}"
-                yield piece, page_of(a + s)
+                yield piece, page_of(a + s), course
         return
 
     # 2b. Everything else: fixed-size chunks over the whole document, so page breaks don't split text.
     for s, e in chunk_spans(text, size, overlap):
-        yield text[s:e].strip(), page_of(s)
+        yield text[s:e].strip(), page_of(s), ""
 
 
 def main():
@@ -148,10 +151,10 @@ def main():
 
     ids, docs, metas = [], [], []
     for source, pages, is_paged in load_documents(settings.raw_dir):
-        for i, (chunk, page) in enumerate(strategy(pages, is_paged, settings.chunk_size, settings.chunk_overlap)):
+        for i, (chunk, page, course) in enumerate(strategy(pages, is_paged, settings.chunk_size, settings.chunk_overlap)):
             ids.append(hashlib.sha1(f"{source}|{i}".encode()).hexdigest())
             docs.append(chunk)
-            metas.append({"source": source, "page": page, "chunk": i})
+            metas.append({"source": source, "page": page, "chunk": i, "course": course})
 
     if not docs:
         print(f"No documents found in {settings.raw_dir}. Add PDFs/HTML/TXT files first.")

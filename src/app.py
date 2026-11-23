@@ -30,6 +30,7 @@ if question := st.chat_input("Ask about courses, requirements, policies..."):
         with st.expander("Sources"):
             for i, s in enumerate(result["sources"], start=1):
                 page = f", p.{s['page']}" if s["page"] else ""
-                st.markdown(f"**[{i}] {s['source']}{page}** · distance {s['distance']:.3f}")
+                how = "exact course match" if s.get("match") == "exact" else f"distance {s['distance']:.3f}"
+                st.markdown(f"**[{i}] {s['source']}{page}** · {how}")
                 st.text(s["text"][:500] + ("..." if len(s["text"]) > 500 else ""))
     st.session_state.history.append({"role": "assistant", "content": result["answer"]})
