@@ -1,0 +1,42 @@
+question,retrieval_hit,answer_hit,refusal_ok,latency_s,answer
+What are the prerequisites for CS 310?,True,False,,2.54,I couldn't find that in the documents I have.
+What are the prerequisites for CS 330?,True,True,,2.07,"According to [1], the prerequisites for CS 330: Formal Methods and Models are:
+
+* (CS 211C or 211XS)
+* (MATH 125C or 125XS)"
+What courses do I need before taking CS 483 Analysis of Algorithms?,True,True,,2.54,"According to [1], the required prerequisites for CS 483 Analysis of Algorithms are:
+
+1. CS 310C or 310XS
+2. CS 330C or 330XS
+3. MATH 125C or 125XS
+
+So, you need to take these three courses before taking CS 483 Analysis of Algorithms."
+What is CS 367 and how many credits is it?,True,False,,1.41,I couldn't find that in the documents I have.
+What is the name of MATH 125?,True,False,,1.65,I couldn't find that in the documents I have.
+What is the prerequisite for MATH 203 Linear Algebra?,True,True,,1.74,"According to [1], the prerequisite for MATH 203: Linear Algebra is:
+
+MATH 114C, 114XS, 114T, 116C or 116XS."
+How many total credits are required for the Computer Science BS?,False,False,,1.45,I couldn't find that in the documents I have.
+"In the CS BS, what can replace STAT 344 if I take MATH 352?",True,True,,2.34,"According to [1] (p.1), if you take MATH 352 Statistics, you can replace STAT 344 Probability and Statistics for Engineers and Scientists I with MATH 351 Probability."
+How many times can I attempt an undergraduate course taught by the College of Engineering and Computing?,True,False,,1.89,"According to [1], students in the College of Engineering and Computing who do not successfully complete a course required for a College of Engineering and Computing major within three attempts will also be terminated."
+Which courses fulfill the writing-intensive requirement for Computer Science majors?,True,False,,1.41,I couldn't find that in the documents I have.
+How many credits do I need to be classified as a junior?,True,True,,3.06,"According to [1] (GMU_Academic_Policies.pdf, p.1), Admitted undergraduates are classified as follows:
+
+* Freshman, 0–29 credits completed
+* Sophomore, 30–59 credits completed
+* Junior, 60–89 credits completed
+* Senior, 90 or more credits completed
+
+Therefore, to be classified as a junior, you need to have completed between 60 and 89 credits."
+What GPA do I need to make the Dean's List?,True,True,,2.07,"According to [2] (GMU_Academic_Policies.pdf, p.10), to be eligible for the Dean's List, students must earn a semester GPA of 3.50 or higher with no grade below C."
+When is a student placed on academic probation?,True,True,,3.88,"According to [1] (GMU_Academic_Policies.pdf, p.3) and [2] (GMU_Academic_Policies.pdf, p.3), a student is placed on Academic Probation if all of the following conditions are met:
+
+1. The student has previously received an Academic Warning in any previous term.
+2. The student receives a term GPA below 2.00.
+3. The student has a cumulative GPA below 2.00.
+
+Additionally, [2] (GMU_Academic_Policies.pdf, p.3) states that students will continue on Academic Probation and avoid suspension if their current term GPA is 2.00 or above, until their cumulative GPA reaches 2.00 or above."
+How many credits per semester makes an undergraduate full-time?,True,True,,2.02,"According to [1], full-time undergraduates are classified as those students enrolled in 12 or more credits per semester."
+What is the deadline to withdraw from a class this semester?,,,True,1.41,I couldn't find that in the documents I have.
+Who is teaching CS 310 in Spring 2027?,,,True,0.79,I couldn't find that in the documents I have.
+How much is tuition per credit hour?,,,True,1.89,I couldn't find that in the documents I have.

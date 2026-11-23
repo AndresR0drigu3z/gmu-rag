@@ -18,6 +18,7 @@ class Settings:
     chroma_dir = ROOT / os.getenv("CHROMA_DIR", "data/chroma")
     collection = os.getenv("COLLECTION", "gmu_docs")
 
+    chunk_strategy = os.getenv("CHUNK_STRATEGY", "structured")  # "structured" or "page" (baseline)
     chunk_size = int(os.getenv("CHUNK_SIZE", "800"))       # characters
     chunk_overlap = int(os.getenv("CHUNK_OVERLAP", "150"))  # characters
     top_k = int(os.getenv("TOP_K", "4"))
